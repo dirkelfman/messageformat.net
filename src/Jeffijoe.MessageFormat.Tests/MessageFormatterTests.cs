@@ -144,7 +144,7 @@ namespace Jeffijoe.MessageFormat.Tests
         [Fact]
         public void VerifyFormatMessageThrowsWhenVariablesAreMissing()
         {
-            const string Pattern = "{name} has {messages, plural, 123}.";
+            const string Pattern = "Your Cart ({quantity, plural, one {# item} other {# items}})";
 
             // Note the missing "name" variable.
             var args = new Dictionary<string, object> { { "messages", 1 } };

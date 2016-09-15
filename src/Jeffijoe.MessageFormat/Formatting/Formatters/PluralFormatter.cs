@@ -93,8 +93,9 @@ namespace Jeffijoe.MessageFormat.Formatting.Formatters
             {
                 offset = Convert.ToDouble(offsetExtension.Value);
             }
-
-            var n = Convert.ToDouble(value);
+            double n = 0;
+            double.TryParse(value?.ToString(), out n);
+            //var n = Convert.ToDouble(value);
             var pluralized = new StringBuilder(this.Pluralize(locale, arguments, n, offset));
             var result = this.ReplaceNumberLiterals(pluralized, n - offset);
             var formatted = messageFormatter.FormatMessage(result, args);

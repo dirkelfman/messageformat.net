@@ -244,7 +244,8 @@ namespace Jeffijoe.MessageFormat
                 object value;
                 if (args.TryGetValue(request.Variable, out value) == false)
                 {
-                    throw new VariableNotFoundException(request.Variable);
+                    value = string.Empty;
+                   // throw new VariableNotFoundException(request.Variable);
                 }
                 
                 var formatter = this.Formatters.GetFormatter(request);
